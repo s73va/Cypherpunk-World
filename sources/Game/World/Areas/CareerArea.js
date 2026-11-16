@@ -125,6 +125,7 @@ export class CareerArea extends Area
                 line.textMesh.castShadow = false
                 line.textMesh.receiveShadow = false
                 line.textMesh.material = material
+                line.textMesh.visible = false // Original career text hidden until ours is ready
             }
 
             this.lines.items.push(line)

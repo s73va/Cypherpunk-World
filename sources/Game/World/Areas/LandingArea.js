@@ -25,15 +25,11 @@ export class LandingArea extends Area
     {
         const references = this.references.items.get('letters')
 
+        // Original name lettering removed until our own is modelled
         for(const reference of references)
         {
-            const physical = reference.userData.object.physical
-            physical.colliders[0].setActiveEvents(this.game.RAPIER.ActiveEvents.CONTACT_FORCE_EVENTS)
-            physical.colliders[0].setContactForceEventThreshold(5)
-            physical.onCollision = (force, position) =>
-            {
-                this.game.audio.groups.get('hitBrick').playRandomNext(force, position)
-            }
+            reference.visible = false
+            reference.userData.object.physical.body.setEnabled(false)
         }
     }
 
